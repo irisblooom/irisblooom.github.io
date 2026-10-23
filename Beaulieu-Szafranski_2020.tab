@@ -1,0 +1,21 @@
+/* DATA DESCRIPTION:
+Citation:	Beaulieu, Stace E; Szafrański, Kamil M (2020): InterRidge Global Database of Active Submarine Hydrothermal Vent Fields Version 3.4 [dataset]. PANGAEA, https://doi.org/10.1594/PANGAEA.917894
+Abstract:	The purpose of the InterRidge Global Database of Active Submarine Hydrothermal Vent Fields, hereafter referred to as the "InterRidge Vents Database," is to provide a comprehensive list of active submarine hydrothermal vent fields for use in academic research, education, and marine policy. This dataset includes a data table (flat file) and a map representing the InterRidge Vents Database Version 3.4. Version 3.4 was completed on 25 March 2020 with a total of 721 vent fields, with 666 confirmed or inferred active and 55 inactive (please note: the database is not comprehensive for inactive vent fields). The number of known active vent fields increased by 134 in the past decade since the publication of InterRidge Vents Database Version 2.1 (Beaulieu et al., 2013, doi:10.1002/2013GC004998).
+	The contents of the InterRidge Vents Database were derived principally from the open literature. The database includes a vocabulary of vent field names and information that may be useful in mapping, including position (latitude, longitude), depth, region, tectonic setting, national jurisdiction, and ocean. Additional information includes names of individual vent sites within vent fields, spreading rate for those vent fields at spreading centers, maximum temperature or temperature category (high or low) for confirmed active vent fields, notes on site description and biology for some of the vent fields, year discovered, and references.
+	The data table was exported from the online database at https://vents-data.interridge.org/ on 2020-03-25; several columns were removed with script available at https://github.com/sbeaulieu/vents-Drupal. We also provide a text file with definitions for the column headers in the data table.
+	The map is provided in several formats and shows locations of all vent fields in Version 3.4 (downloaded from the online database on 2019-12-24) with bathymetry from NOAA ETOPO1. The map was created by Jyun-Nai Wu (University of California San Diego).
+	The InterRidge Vents Database is supported by the InterRidge program for international cooperation in ocean floor studies. For Version 3.4, S. Beaulieu was supported by U.S. National Science Foundation awards #1558904 and #1829773.
+Keyword(s):	Benthic; Deep sea; hydrothermal activity; hydrothermal vent; marine hydrothermal plume; submarine volcano
+Parameter(s):	File name (File name) * PI: Beaulieu, Stace E (https://orcid.org/0000-0002-2609-5453, stace@whoi.edu)
+	File format (File format) * PI: Beaulieu, Stace E (https://orcid.org/0000-0002-2609-5453, stace@whoi.edu)
+	File size [kByte] (File size) * PI: Beaulieu, Stace E (https://orcid.org/0000-0002-2609-5453, stace@whoi.edu)
+	Uniform resource locator/link to file (URL file) * PI: Beaulieu, Stace E (https://orcid.org/0000-0002-2609-5453, stace@whoi.edu)
+License:	Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC-BY-NC-SA-4.0) (URI: https://creativecommons.org/licenses/by-nc-sa/4.0/)
+Size:	20 data points
+*/
+File name	File format	File size [kByte]	URL file
+global2_vents_land_masked_Robinson	JPG	2075.726	https://hs.pangaea.de/Maps/Vents/InterRidge_Beaulieu_2020/global2_vents_land_masked_Robinson.jpg
+global2_vents_land_masked_Robinson	PS	514148.794	https://hs.pangaea.de/Maps/Vents/InterRidge_Beaulieu_2020/global2_vents_land_masked_Robinson.ps
+global2_vents_land_masked_Robinson	TIF	67577.223	https://hs.pangaea.de/Maps/Vents/InterRidge_Beaulieu_2020/global2_vents_land_masked_Robinson.tif
+vent_fields_all_20200325cleansorted	CSV	852.002	https://hs.pangaea.de/Maps/Vents/InterRidge_Beaulieu_2020/vent_fields_all_20200325cleansorted.csv
+vent_fields_all_20200325cleansorted_column_header_definitions	CSV	3.583	https://hs.pangaea.de/Maps/Vents/InterRidge_Beaulieu_2020/vent_fields_all_20200325cleansorted_column_header_definitions.csv

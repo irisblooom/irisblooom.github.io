@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>InterRidge vent fields</title>
+  <link rel="stylesheet" href="styles.css?v=18">
+</head>
+<body>
+  <div id="globe" role="application" aria-label="Globe of hydrothermal vent fields">
+    <div id="legend" class="globe-legend"></div>
+    <aside id="passing" class="passing" hidden></aside>
+    <p id="tip" class="tip" hidden></p>
+    <div id="infobox" class="infobox" hidden></div>
+    <p id="origin-label" class="origin-label" hidden>San Francisco</p>
+    <div class="zoom">
+      <button type="button" id="play" aria-label="Pause">❚❚</button>
+      <button type="button" id="zoom-in" aria-label="Zoom in">+</button>
+      <button type="button" id="zoom-out" aria-label="Zoom out">−</button>
+    </div>
+    <p class="credit"><a href="https://doi.org/10.1594/PANGAEA.917894">InterRidge Vents Database v3.4</a></p>
+  </div>
+
+  <noscript>This globe needs JavaScript to show the vent fields.</noscript>
+  <script>
+    (function () {
+      let seen = null;
+      async function poll() {
+        try {
+          const res = await fetch("/api/screen", { cache: "no-store" });
+          if (!res.ok) return;
+          const body = await res.json();
+          if (seen === null) seen = body.generation;
+          else if (body.generation !== seen) location.reload();
+        } catch (err) {}
+      }
+      setInterval(poll, 2000);
+      poll();
+    })();
+  </script>
+  <script src="vents.js"></script>
+  <script src="missions.js?v=1"></script>
+  <script type="importmap">
+    { "imports": { "three": "./vendor/three/three.module.js" } }
+  </script>
+  <script type="module" src="app.js?v=36"></script>
+</body>
+</html>

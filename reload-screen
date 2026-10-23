@@ -1,0 +1,42 @@
+#!/bin/sh
+# Reload the HDMI kiosk Firefox, and any open copy of the globe that is listening.
+
+curl -fsS -X POST "http://127.0.0.1:8090/api/screen/reload" || true
+echo
+
+sim_uid=$(id -u sim 2>/dev/null || echo 1000)
+if [ ! -d "${XDG_RUNTIME_DIR:-}/hypr" ] && [ -d "/run/user/${sim_uid}/hypr" ]; then
+  export XDG_RUNTIME_DIR="/run/user/${sim_uid}"
+fi
+
+signature=$(find "${XDG_RUNTIME_DIR:-/nonexistent}/hypr" -mindepth 1 -maxdepth 1 -type d -printf '%f\n' 2>/dev/null | head -n 1)
+if [ -z "$signature" ]; then
+  echo "Could not open the Hyprland session. Run this as sim, without sudo." >&2
+  exit 1
+fi
+
+export HYPRLAND_INSTANCE_SIGNATURE="$signature"
+export WAYLAND_DISPLAY="${WAYLAND_DISPLAY:-wayland-1}"
+
+pid=""
+for dir in /proc/[0-9]*; do
+  cmd=$(tr '\0' ' ' < "$dir/cmdline" 2>/dev/null || true)
+  case "$cmd" in
+    *firefox*profiles/HDMI-A-1*)
+      pid=${dir#/proc/}
+      break
+      ;;
+  esac
+done
+
+if [ -z "$pid" ]; then
+  echo "The HDMI Firefox is not running." >&2
+  exit 1
+fi
+
+if ! hyprctl dispatch sendshortcut "CTRL SHIFT, R, pid:${pid}"; then
+  echo "Hyprland did not accept the reload for pid ${pid}." >&2
+  exit 1
+fi
+
+echo "Reloaded the HDMI Firefox (pid ${pid})."
